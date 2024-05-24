@@ -146,9 +146,14 @@ function playPrayerSound() {
 // Ensure the DOM is fully loaded before running the script
 document.addEventListener('DOMContentLoaded', () => {
   if ("Notification" in window) {
-    Notification.requestPermission();
+    Notification.requestPermission().then(permission => {
+      if (permission === "granted") {
+        displayPrayerTimes();
+      }
+    });
+  } else {
+    displayPrayerTimes();
   }
-  displayPrayerTimes();
 });
 
 
