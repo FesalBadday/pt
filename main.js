@@ -149,6 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
     Notification.requestPermission().then(permission => {
       if (permission === "granted") {
         displayPrayerTimes();
+      } else {
+        displayPrayerTimes();
       }
     });
   } else {
